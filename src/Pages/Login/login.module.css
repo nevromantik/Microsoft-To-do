@@ -1,0 +1,65 @@
+.loginContainer {
+  background: rgb(233, 216, 210);
+  background: linear-gradient(
+    138deg,
+    rgba(233, 216, 210, 1) 0%,
+    rgba(218, 226, 214, 1) 56%,
+    rgba(235, 232, 211, 1) 100%
+  );
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  height: 50%;
+  width: 30%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: -1px 10px 15px 0px rgba(0, 0, 0, 0.46);
+  box-shadow: -1px 10px 15px 0px rgba(0, 0, 0, 0.46);
+}
+.loginbox {
+  height: 80%;
+  width: 80%;
+}
+
+.inputlogbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputlogbox input {
+  border: none;
+  border-bottom: solid 1px #0067b8;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.logowrap img {
+  height: 20%;
+  width: 20%;
+}
+
+.login h1 {
+  font-weight: 400;
+}
+
+.inputbtnbox {
+  display: flex;
+  justify-content: end;
+}
+
+.inputbtnbox button {
+  border: none;
+  width: 20%;
+  height: 2.5rem;
+  color: white;
+  background-color: #0067b8;
+
+  padding: 1rem;
+  text-align: center;
+}

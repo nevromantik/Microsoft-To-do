@@ -1,0 +1,97 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Alex Red",
+      "email": "test@gmail.com",
+      "password": "test",
+      "todos": [
+        {
+          "id": 22,
+          "title": "test todo 1",
+          "currentState": "to do",
+          "category": "home",
+          "subTasks": [
+            {
+              "id": 23,
+              "title": "sub todo 1",
+              "completed": false
+            },
+            {
+              "id": 24,
+              "title": "sub todo 2",
+              "completed": false
+            },
+            {
+              "id": 25,
+              "title": "sub todo 3",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullname": "Rose Smith",
+      "email": "rose@gmail.com",
+      "password": "rose",
+      "todos": [
+        {
+          "id": 33,
+          "title": "test todo 1",
+          "currentState": "to do",
+          "category": "home",
+          "subTasks": [
+            {
+              "id": 34,
+              "title": "sub todo 1",
+              "completed": false
+            },
+            {
+              "id": 35,
+              "title": "sub todo 2",
+              "completed": false
+            },
+            {
+              "id": 36,
+              "title": "sub todo 3",
+              "completed": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "currentUser": {
+    "id": 1,
+    "fullname": "Alex Red",
+    "email": "test@gmail.com",
+    "password": "test",
+    "todos": [
+      {
+        "id": 22,
+        "title": "test todo 1",
+        "currentState": "to do",
+        "category": "home",
+        "subTasks": [
+          {
+            "id": 23,
+            "title": "sub todo 1",
+            "completed": false
+          },
+          {
+            "id": 24,
+            "title": "sub todo 2",
+            "completed": false
+          },
+          {
+            "id": 25,
+            "title": "sub todo 3",
+            "completed": false
+          }
+        ]
+      }
+    ]
+  }
+}
