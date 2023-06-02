@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
-import style from "./login.module.css";
+import style from '../../Pages/Login/login.module.css'
 import logo from "../../Assets/Microsoft-Logo-650x366.png";
-import SignUp from "../../Components/Signup/SignUp";
+import SignUp from './SignUp'
 import { AppContext } from "../../App";
 import { useState } from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function Login() {
+  const navigate = useNavigate();
+  
   const [login, setLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { allUsers, setSelectedUser, selectedUser } = useContext(AppContext);
+  const { allUsers, setCurrentUser, currentUser } = useContext(AppContext);
   const handleGetUser = () => {
     const userMatch = allUsers.some(
       (user) => user.email === email && user.password === password
@@ -20,13 +23,19 @@ function Login() {
         (user) => user.email === email && user.password === password
       );
       
-      axios.post('http://localhost:4000/currentUser', selectedUser)
-      .then(response => setSelectedUser(response.data));
-      console.log(selectedUser)
+      axios.post('http://localhost:3000/currentUser', selectedUser)
+      .then(response => {
+        setCurrentUser(response.data);
+        console.log(response)
+      });
+     
+      navigate("/dashboard")
+      
     }
   };
 
  
+  console.log(currentUser, 'current from LOGIN')
 
  
   return (

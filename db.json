@@ -5,12 +5,13 @@
       "fullname": "Alex Red",
       "email": "test@gmail.com",
       "password": "test",
+      "customCategory": [],
       "todos": [
         {
           "id": 22,
           "title": "test todo 1",
           "currentState": "to do",
-          "category": "home",
+          "category": "La mia giornata",
           "subTasks": [
             {
               "id": 23,
@@ -36,12 +37,13 @@
       "fullname": "Rose Smith",
       "email": "rose@gmail.com",
       "password": "rose",
+      "customCategory": [],
       "todos": [
         {
           "id": 33,
           "title": "test todo 1",
           "currentState": "to do",
-          "category": "home",
+          "category": "Importante",
           "subTasks": [
             {
               "id": 34,
@@ -64,29 +66,30 @@
     }
   ],
   "currentUser": {
-    "id": 1,
-    "fullname": "Alex Red",
-    "email": "test@gmail.com",
-    "password": "test",
+    "id": 2,
+    "fullname": "Rose Smith",
+    "email": "rose@gmail.com",
+    "password": "rose",
+    "customCategory": [],
     "todos": [
       {
-        "id": 22,
+        "id": 33,
         "title": "test todo 1",
         "currentState": "to do",
-        "category": "home",
+        "category": "Importante",
         "subTasks": [
           {
-            "id": 23,
+            "id": 34,
             "title": "sub todo 1",
             "completed": false
           },
           {
-            "id": 24,
+            "id": 35,
             "title": "sub todo 2",
             "completed": false
           },
           {
-            "id": 25,
+            "id": 36,
             "title": "sub todo 3",
             "completed": false
           }

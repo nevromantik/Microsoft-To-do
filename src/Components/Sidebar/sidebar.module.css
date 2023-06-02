@@ -1,0 +1,55 @@
+.sidebarwrap{
+    border: 1px solid black;
+    height: 100%;
+    background-color: rgba(33,33,33,255);
+    color: white
+}
+
+.useravatar{
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    border-radius: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    background-color: #7e3878;
+    margin-right: 2rem;
+
+}
+.userinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.navinputwrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navinputwrap input {
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.8rem;
+    background-color: transparent;
+    border: none; 
+    border-bottom: 1px solid white;
+}
+
+.navinputwrap input::placeholder{
+    color: white;
+    font-size: 0.8rem;
+}
+
+.userdatainfo p {
+    font-size: 0.8rem;
+}
+
+.usernameinfo{
+  position:relative;
+  top: 0.5rem 
+}
