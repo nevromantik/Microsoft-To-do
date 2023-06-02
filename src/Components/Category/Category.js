@@ -1,48 +1,43 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import style from "./category.module.css";
-import { BsSun } from "react-icons/bs";
-import { AiOutlineStar } from "react-icons/ai";
-import { BiBookContent } from "react-icons/bi";
-import { BiUser } from "react-icons/bi";
-import { FiHome } from "react-icons/fi";
+
 import { HiOutlineMenu } from "react-icons/hi";
 import { AppContext } from "../../App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 
 import axios from "axios";
 import uniqid from "uniqid";
 function Categorytest() {
   const navigate = useNavigate();
 
-  const { setCurrentUser, currentUser } = useContext(AppContext);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [defaultCategory, setDefaultCategory] = useState([
-    { title: "La mia giornata", icon: BsSun, background: null },
-    { title: "Importante", icon: AiOutlineStar, background: null },
-    { title: "Pianificato", icon: BiBookContent, background: null },
-    { title: "Assegnate a me", icon: BiUser, background: null },
-    { title: "Attività", icon: FiHome, background: null},
-  ]);
+  const {
+    setCurrentUser,
+    currentUser,
+    defaultCategory,
+    setDefaultCategory,
+    catId,
+    setCatId,
+    setSelectedCategory,
+    selectedCategory,
+    setSelectedCatId,
+  } = useContext(AppContext);
 
   const [newCatTitle, setNewCatTitle] = useState("");
-  const [catId, setCatId] = useState("");
-
   const handleAddCategory = () => {
     setCurrentUser((prev) => {
       const newCategoryObj = {
         title: "Nuovo elenco",
         icon: HiOutlineMenu,
         id: uniqid(),
-        background: null
+        background: null,
       };
-  
+
       const customCategory = prev.customCategory || []; // Verifica se prev.customCategory è definito come un array
-  
+
       const updatedCustomCategory = [...customCategory, newCategoryObj];
-  
+
       return {
         ...prev,
         customCategory: updatedCustomCategory,
@@ -53,15 +48,16 @@ function Categorytest() {
     //Ho id input category
     // Ho nuovo title
 
-    const selectedCategory = currentUser?.customCategory?.find((el) => {
+    const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === catId;
     });
-    selectedCategory.title = newCatTitle;
+
+    selected.title = newCatTitle;
     setCurrentUser((prev) => {
       return {
         ...prev,
         customCategory: currentUser.customCategory.map((el) => {
-          if (el.customCategory?.id === selectedCategory?.id) {
+          if (el.customCategory?.id === selected?.id) {
             return { ...el, title: newCatTitle };
           } else {
             return el;
@@ -75,9 +71,12 @@ function Categorytest() {
   return (
     <>
       <div className={`${style.x} ${style.categoryContainer}`}>
-        <div className={style.defaultcatbox} onClick={() => {
-          navigate("tasks")
-        }}>
+        <div
+          className={style.defaultcatbox}
+          onClick={(e) => {
+            navigate("tasks");
+          }}
+        >
           {defaultCategory.map((cat, index) => {
             return (
               <div key={index} className={style.category}>
@@ -113,10 +112,17 @@ function Categorytest() {
         </div>
         {currentUser?.customCategory?.map((cat, index) => {
           return (
-            <div key={cat.id} className={style.category}>
-              <div className={style.categoryTitle}  onClick={() => {
-          navigate("tasks")
-        }}>
+            <div
+              key={cat.id}
+              className={style.category}
+              onClick={() => setSelectedCatId(cat.id)}
+            >
+              <div
+                className={style.categoryTitle}
+                onClick={() => {
+                  navigate("tasks");
+                }}
+              >
                 <form
                   style={{
                     display: "flex",
@@ -135,19 +141,15 @@ function Categorytest() {
                     />
                   }
                   <input
-                  className={style.inputTitle}
+                    className={style.inputTitle}
                     type="text"
                     placeholder={cat.title}
                     style={{ border: "none", backgroundColor: "transparent" }}
                     data-id={cat.id}
-                    
                     onChange={(e) => {
                       const dataId = e.target.getAttribute("data-id");
                       setCatId(dataId);
                       setNewCatTitle(e.target.value);
-                     
-
-
                     }}
                   ></input>
                 </form>
