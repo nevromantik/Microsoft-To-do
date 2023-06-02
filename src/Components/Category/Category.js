@@ -15,13 +15,14 @@ function Categorytest() {
   const {
     setCurrentUser,
     currentUser,
-    defaultCategory,
-    setDefaultCategory,
+
     catId,
     setCatId,
     setSelectedCategory,
     selectedCategory,
     setSelectedCatId,
+    selectedDefaultCatId,
+    setSelectedDefaultCatId,
   } = useContext(AppContext);
 
   const [newCatTitle, setNewCatTitle] = useState("");
@@ -71,45 +72,6 @@ function Categorytest() {
   return (
     <>
       <div className={`${style.x} ${style.categoryContainer}`}>
-        <div
-          className={style.defaultcatbox}
-          onClick={(e) => {
-            navigate("tasks");
-          }}
-        >
-          {defaultCategory.map((cat, index) => {
-            return (
-              <div key={index} className={style.category}>
-                <div className={style.categoryTitle}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                    className={style.icontitlebox}
-                  >
-                    {
-                      <cat.icon
-                        style={{
-                          fontSize: "1.5rem",
-                          color:
-                            cat.title === "Assegnate a me"
-                              ? "#8ec0aa"
-                              : "#a9a9a9",
-                        }}
-                      />
-                    }
-
-                    <p>{cat.title}</p>
-                  </div>
-
-                  <div className={style.todocounter}>1</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
         {currentUser?.customCategory?.map((cat, index) => {
           return (
             <div

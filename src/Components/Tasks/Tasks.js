@@ -8,17 +8,19 @@ function Tasks() {
     setSelectedCategory,
     currentUser,
     selectedCatId,
-    setSelectedCatId,
+    
+  
   } = useContext(AppContext);
   useEffect(() => {
     const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === selectedCatId;
     });
-    setSelectedCategory(selected);
+   
+    setSelectedCategory(selected );
     console.log("SE", selectedCategory);
   }, [selectedCatId, currentUser, selectedCategory, setSelectedCategory]);
 
-  return <div>{selectedCategory?.title}</div>;
+  return <div>{selectedCategory?.title} </div>;
 }
 
 export default Tasks;

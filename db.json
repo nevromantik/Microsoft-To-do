@@ -5,7 +5,38 @@
       "fullname": "Alex Red",
       "email": "test@gmail.com",
       "password": "test",
-      "customCategory": [],
+      "customCategory": [
+        {
+          "title": "La mia giornata",
+          "icon": "BsSun",
+          "background": null,
+          "id": 100
+        },
+        {
+          "title": "Importante",
+          "icon": "AiOutlineStar",
+          "background": null,
+          "id": 101
+        },
+        {
+          "title": "Pianificato",
+          "icon": "BiBookContent",
+          "background": null,
+          "id": 102
+        },
+        {
+          "title": "Assegnate a me",
+          "icon": "BiUser",
+          "background": null,
+          "id": 103
+        },
+        {
+          "title": "Attività",
+          "icon": "FiHome",
+          "background": null,
+          "id": 104
+        }
+      ],
       "todos": [
         {
           "id": 22,
@@ -37,7 +68,38 @@
       "fullname": "Rose Smith",
       "email": "rose@gmail.com",
       "password": "rose",
-      "customCategory": [],
+      "customCategory": [
+        {
+          "title": "La mia giornata",
+          "icon": "BsSun",
+          "background": null,
+          "id": 100
+        },
+        {
+          "title": "Importante",
+          "icon": "AiOutlineStar",
+          "background": null,
+          "id": 101
+        },
+        {
+          "title": "Pianificato",
+          "icon": "BiBookContent",
+          "background": null,
+          "id": 102
+        },
+        {
+          "title": "Assegnate a me",
+          "icon": "BiUser",
+          "background": null,
+          "id": 103
+        },
+        {
+          "title": "Attività",
+          "icon": "FiHome",
+          "background": null,
+          "id": 104
+        }
+      ],
       "todos": [
         {
           "id": 33,
@@ -70,7 +132,38 @@
     "fullname": "Rose Smith",
     "email": "rose@gmail.com",
     "password": "rose",
-    "customCategory": [],
+    "customCategory": [
+      {
+        "title": "La mia giornata",
+        "icon": "BsSun",
+        "background": null,
+        "id": 100
+      },
+      {
+        "title": "Importante",
+        "icon": "AiOutlineStar",
+        "background": null,
+        "id": 101
+      },
+      {
+        "title": "Pianificato",
+        "icon": "BiBookContent",
+        "background": null,
+        "id": 102
+      },
+      {
+        "title": "Assegnate a me",
+        "icon": "BiUser",
+        "background": null,
+        "id": 103
+      },
+      {
+        "title": "Attività",
+        "icon": "FiHome",
+        "background": null,
+        "id": 104
+      }
+    ],
     "todos": [
       {
         "id": 33,
