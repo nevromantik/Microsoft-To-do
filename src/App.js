@@ -17,7 +17,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [selectedCatId, setSelectedCatId] = useState("");
   const [selectedDefaultCatId, setSelectedDefaultCatId] = useState("");
-
+  
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((response) => {
       setAllUsers(response.data);

@@ -2,16 +2,24 @@ import React, { useEffect, useState } from "react";
 import style from "./tasks.module.css";
 import { useContext } from "react";
 import { AppContext } from "../../App";
+import {AiOutlineArrowUp} from 'react-icons/ai';
+import {BsArrowsFullscreen} from 'react-icons/bs';
+import {BsLightbulb} from 'react-icons/bs';
+import Task from "./Task";
 function Tasks() {
   const { selectedCategory, setSelectedCategory, currentUser, selectedCatId } =
     useContext(AppContext);
+
+    const [tasksList, setTasksList] = useState([])
   useEffect(() => {
     const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === selectedCatId;
     });
-
+    
     setSelectedCategory(selected);
-  }, [selectedCatId, currentUser, selectedCategory, setSelectedCategory]);
+    const filteredTasksList = currentUser?.todos?.filter((el) => el.category === selectedCategory.title)
+    setTasksList(filteredTasksList)
+}, [selectedCatId, currentUser, selectedCategory, setSelectedCategory]);
 
   return (
     <div className={style.taskcontainer}>
@@ -21,16 +29,20 @@ function Tasks() {
         
       </div>
       <div className={style.optionsBtns}>
-        <button>btn 1</button>
-        <button>btn 2</button>
-        <button>°°°</button>
+        <button className={style.fullscreenbtn}><BsArrowsFullscreen style={{fontSize:'1rem'}}/></button>
+        <button className={style.showDetailsBtn}><BsLightbulb style={{fontSize:'1rem'}}/></button>
+        <button className={style.changebcBtn} style={{fontSize:'1rem'}}>°°°</button>
       </div>
       <div className={style.sortTaskBtn}>
-      <button>In ordine di importanza</button>
-        <div>x</div>
+      <button>
+        <AiOutlineArrowUp style={{fontSize: '1rem', marginRight: '0.5rem'}}/>
+        In ordine di importanza</button>
       </div>
       <div className={style.tasksList}>
-        TASK
+         {tasksList?.map((el) => {
+            return  <Task title={el?.title} category={el?.category} id={el?.id}/>
+
+         })}
       </div>
       <div className={style.addTaskBtn}>
          <input type='text'></input>

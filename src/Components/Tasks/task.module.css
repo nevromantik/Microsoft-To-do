@@ -1,0 +1,44 @@
+.check{
+    width: 17px;
+    height: 17px;
+    border: 2px solid  #aeafaf;
+    border-radius: 50% 50%;
+    margin-top: 0.8rem;
+    margin-left: 0.9rem;
+}
+
+.task{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 98%;
+    height: 10%;
+    margin-left: 2rem;
+    background-color: #2c2e2f;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.9rem;
+
+}
+
+.task:hover{
+    background-color: #373a3b;
+}
+
+.todoCategory{
+    position: relative;
+    bottom: 1rem;
+    color: #aeafaf
+    
+}
+
+.infoTodo{
+    margin-left: 1rem;
+    position: relative;
+    bottom: 0.2rem;
+    color: white
+}
+.importantIcon{
+    margin-left: 70rem;
+    margin-top: 1rem;
+}
