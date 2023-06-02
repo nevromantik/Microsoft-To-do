@@ -11,7 +11,7 @@ function Tasks() {
   const { selectedCategory, setSelectedCategory, currentUser, setCurrentUser, selectedCatId } =
     useContext(AppContext);
   const [tasksList, setTasksList] = useState([]);
-  
+  const [newTodoTitle, setNewTodoTitle] = useState('')
   useEffect(() => {
     const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === selectedCatId;
@@ -23,7 +23,19 @@ function Tasks() {
     );
     setTasksList(filteredTasksList);
   }, [selectedCatId, currentUser, selectedCategory, setSelectedCategory]);
- 
+   
+  const handleNewTodo = () => {
+    const newTodo = {
+        id: uniqid(),
+        title: newTodoTitle,
+        category: selectedCategory.title,
+        subTasks: []
+    }
+   setCurrentUser((prev) => {
+    return {...prev, todos: [...prev.todos, newTodo]}
+   });
+   console.log(currentUser?.todos)
+  }
   return (
     <div className={style.taskcontainer}>
       <div className={style.taskCategoryDateInfo}>
@@ -54,8 +66,13 @@ function Tasks() {
           return <Task title={el?.title} category={el?.category} id={el?.id} />;
         })}
       </div>
-      <form className={style.addTaskBtn} >
-        <input type="text" placeholder="Aggiungi un'attività" ></input>
+      <form className={style.addTaskBtn} onSubmit={(e => {
+        e.preventDefault();
+        handleNewTodo()
+      })} >
+        <input type="text" placeholder="Aggiungi un'attività" onChange={(e) => {
+            setNewTodoTitle(e.target.value)
+        }} ></input>
       </form>
     </div>
   );
