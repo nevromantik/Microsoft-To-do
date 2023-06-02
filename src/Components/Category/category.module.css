@@ -85,23 +85,37 @@
 }
 
 .x::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: transparent;
-  }
-  
-  .x::-webkit-scrollbar {
-    width: 10px;
-    background-color: transparent;
-  }
-  
-  .x::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none; /* Rimossa la proprietà border */
-  }
-  
-  .x::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+  background-color: transparent;
+}
+
+.x::-webkit-scrollbar {
+  width: 2px;
+}
+
+.x::-webkit-scrollbar-thumb {
+  background-color: #9a9a9a;
+  border: none;
+}
+
+.x::-webkit-scrollbar-thumb:hover {
+  background-color: #777777;
+}
+
+.x::-webkit-scrollbar-track-piece:end {
+  background-color: transparent;
+}
+
+.x::-webkit-scrollbar-track-piece:start {
+  background-color: transparent;
+}
+
+.x::-webkit-scrollbar-track-piece:vertical {
+  border-left: 1px solid #9a9a9a;
+}
+
+.x::-webkit-scrollbar-track-piece:horizontal {
+  border-top: 1px solid #9a9a9a;
+}
 
 .todocounter{
     font-size: 0.7rem;

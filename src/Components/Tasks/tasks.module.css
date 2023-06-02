@@ -1,7 +1,38 @@
 .taskcontainer{
-    background-color: black;
     height: 97%;
-    margin-top: 1.7rem;
-    border-top-left-radius: 1%;
-    border-top-right-radius: 1%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 2fr 1fr 9fr 2fr;
+    
+}
+
+.sortTaskBtn{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.tasksList{
+    grid-column: 1/4
+}
+
+.optionsBtns{
+    grid-column: 3/4;
+}
+
+.addTaskBtn{
+    grid-column: 1/4;
+}
+
+.taskCategoryDateInfo h1 {
+    color: white;
+    margin-left: 2rem;
+    font-weight: 600;
+    
+}
+.taskCategoryDateInfo p {
+    color: white;
+    margin-left: 2rem;
+    position: relative;
+    bottom: 0.9rem
+    
 }
