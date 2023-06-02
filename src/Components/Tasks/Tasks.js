@@ -45,7 +45,7 @@ function Tasks() {
          })}
       </div>
       <div className={style.addTaskBtn}>
-         <input type='text'></input>
+         <input type='text' placeholder="Aggiungi un'attività"></input>
       </div>
     </div>
   );

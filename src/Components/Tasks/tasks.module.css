@@ -78,3 +78,30 @@
 .changebcBtn{
     background-color: transparent;
 }
+
+.addTaskBtn{
+    width: 97%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+.addTaskBtn input{
+    width: 100%;
+    height: 3.1rem;
+    background-color: rgba(0, 0, 0, 0.171)
+    ;
+    border:none;
+    cursor: pointer;
+
+}
+
+.addTaskBtn input:hover{
+    background-color: rgba(0, 0, 0, 0.062)
+
+}
+
+.addTaskBtn input::placeholder{
+    color: white;
+    font-size: 0.9rem;
+    position: relative;
+    left: 2rem;
+}
