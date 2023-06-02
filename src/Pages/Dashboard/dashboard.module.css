@@ -3,3 +3,11 @@
     grid-template-columns: 1fr 6fr;
     height: 99.8vh;
 }
+
+.dashboardSections{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    background-color: rgba(33,33,33,255);
+    height: 100.2%;
+
+}

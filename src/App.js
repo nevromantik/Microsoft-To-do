@@ -5,6 +5,7 @@ import LoginLayout from "./Pages/Login/LoginLayout";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import DashboardLayout from "./Pages/Dashboard/DashboardLayout";
+import Tasks from "./Components/Tasks/Tasks";
 export const AppContext = createContext(null);
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
             <Route path="/" element={<LoginLayout />}>
               <Route index element={<Login />} />
             </Route>
-            <Route path="dashboard" element={<DashboardLayout />}></Route>
+            <Route path="dashboard" element={<DashboardLayout />}>
+              <Route path='tasks' element={<Tasks/>}/>
+            </Route>
           </Routes>
         </BrowserRouter>
       </AppContext.Provider>

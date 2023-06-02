@@ -9,18 +9,22 @@ import { FiHome } from "react-icons/fi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { AppContext } from "../../App";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 import axios from "axios";
 import uniqid from "uniqid";
 function Categorytest() {
+  const navigate = useNavigate();
 
   const { setCurrentUser, currentUser } = useContext(AppContext);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [defaultCategory, setDefaultCategory] = useState([
-    { title: "La mia giornata", icon: BsSun },
-    { title: "Importante", icon: AiOutlineStar },
-    { title: "Pianificato", icon: BiBookContent },
-    { title: "Assegnate a me", icon: BiUser },
-    { title: "Attività", icon: FiHome },
+    { title: "La mia giornata", icon: BsSun, background: null },
+    { title: "Importante", icon: AiOutlineStar, background: null },
+    { title: "Pianificato", icon: BiBookContent, background: null },
+    { title: "Assegnate a me", icon: BiUser, background: null },
+    { title: "Attività", icon: FiHome, background: null},
   ]);
 
   const [newCatTitle, setNewCatTitle] = useState("");
@@ -32,6 +36,7 @@ function Categorytest() {
         title: "Nuovo elenco",
         icon: HiOutlineMenu,
         id: uniqid(),
+        background: null
       };
   
       const customCategory = prev.customCategory || []; // Verifica se prev.customCategory è definito come un array
@@ -70,7 +75,9 @@ function Categorytest() {
   return (
     <>
       <div className={`${style.x} ${style.categoryContainer}`}>
-        <div className={style.defaultcatbox}>
+        <div className={style.defaultcatbox} onClick={() => {
+          navigate("tasks")
+        }}>
           {defaultCategory.map((cat, index) => {
             return (
               <div key={index} className={style.category}>
@@ -107,7 +114,9 @@ function Categorytest() {
         {currentUser?.customCategory?.map((cat, index) => {
           return (
             <div key={cat.id} className={style.category}>
-              <div className={style.categoryTitle}>
+              <div className={style.categoryTitle}  onClick={() => {
+          navigate("tasks")
+        }}>
                 <form
                   style={{
                     display: "flex",
@@ -136,6 +145,9 @@ function Categorytest() {
                       const dataId = e.target.getAttribute("data-id");
                       setCatId(dataId);
                       setNewCatTitle(e.target.value);
+                     
+
+
                     }}
                   ></input>
                 </form>

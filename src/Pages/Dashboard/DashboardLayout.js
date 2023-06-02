@@ -6,7 +6,7 @@ function DashboardLayout() {
   return (
     <div className={style.dashboard}>
         <Sidebar/>
-        <div>
+        <div className={style.dashboardSections}>
             <Outlet/>
         </div>
     </div>
