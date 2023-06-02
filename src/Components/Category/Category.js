@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import style from "./category.module.css";
-
+import { BsSun } from "react-icons/bs";
+import { AiOutlineStar } from "react-icons/ai";
+import { BiBookContent } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
+import { FiHome } from "react-icons/fi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { AppContext } from "../../App";
 import { useContext } from "react";
@@ -90,6 +94,9 @@ function Categorytest() {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    
+                    borderBottom: cat.title === 'Attività' ? ' 1px solid #313131' : null,
+                    paddingBottom: cat.title === 'Attività' ? '0.5rem' : null
                   }}
                   className={style.icontitlebox}
                   onSubmit={(e) => {
@@ -97,11 +104,18 @@ function Categorytest() {
                     handleUpdateCategory(catId);
                   }}
                 >
-                  {
-                    <cat.icon
+                   
+                    {cat.title === 'La mia giornata' ? <FiHome style={{ fontSize: "1.5rem", color: "#818e98" }}/> :  <cat.icon
                       style={{ fontSize: "1.5rem", color: "#6e80c9" }}
-                    />
-                  }
+                    /> }
+                    {cat.title === 'Assegnate a me' ? <BiUser  style={{ fontSize: "1.5rem", color: "#8dbfa9" }}/> :  null }
+                    {cat.title === 'Importante' ? <AiOutlineStar style={{ fontSize: "1.5rem", color: "#818e98" }}/> :  null }
+                    {cat.title === 'Pianificato' ? <BiBookContent style={{ fontSize: "1.5rem", color: "#7183cf" }}/> :  null }
+                    {cat.title === 'Attività' ? <BsSun style={{ fontSize: "1.5rem", color: "#818e98" }}/> :  null }
+
+                    
+
+                  
                   <input
                     className={style.inputTitle}
                     type="text"

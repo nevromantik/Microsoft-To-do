@@ -6,11 +6,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import DashboardLayout from "./Pages/Dashboard/DashboardLayout";
 import Tasks from "./Components/Tasks/Tasks";
-import { BsSun } from "react-icons/bs";
-import { AiOutlineStar } from "react-icons/ai";
-import { BiBookContent } from "react-icons/bi";
-import { BiUser } from "react-icons/bi";
-import { FiHome } from "react-icons/fi";
+
 export const AppContext = createContext(null);
 
 function App() {
