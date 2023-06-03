@@ -2,11 +2,22 @@ import React from 'react'
 import style from './contextmenu.module.css'
 function ContextMenu({divStyle}) {
   return (
-    <div style={{display: "block",
+
+
+    <>
+      <div className={style.optionsWrap}  style={{display: "block",
     position: "absolute",
-    backgroundColor: "#f1f1f1",
-    padding: "10px",
-    ...divStyle}}>ContextMenu</div>
+    ...divStyle}}>
+        
+        <div className={style.otherBtns}>
+          <div className={style.completedActivity}>
+            
+            <button>Mostra attività completate</button>
+          </div>
+        </div>
+      </div>
+     
+    </>
   )
 }
 
