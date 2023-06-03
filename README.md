@@ -7,14 +7,12 @@ perciò la mia soluzione è stata quella di utilizzare json server per l'autenti
 
 
 
- setCurrentUser((prev) => {
-      const newCategoryObj = {
-        title: newCategory,
-        icon: "HiOutlineMenu" // Inserisci qui l'icona corretta per il nuovo elemento della categoria
-      };
-  
-      return {
-        ...prev,
-        customCategory: [...prev.customCategory, newCategoryObj]
-      };
-    });
+
+OBIETTIVO:
+Implementa tasto destro sul task che apre un div, implementa elimina attività  
+Costruisci div suggerimenti task -> Titolo (modificabile), aggiungi sotto attività, bottone aggiungi alla mia giornata (cambia title category)
+
+
+
+
+*Sistema scroll bar tasks e aggiungi task che viene spinto in basso, fissare larghezza massimo tasks
