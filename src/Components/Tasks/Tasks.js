@@ -11,6 +11,20 @@ import Options from "../Options/Options";
 function Tasks() {
   const { selectedCategory, setSelectedCategory, currentUser, setCurrentUser, selectedCatId, options, setOptions} =
     useContext(AppContext);
+    const [showDiv, setShowDiv] = useState(false);
+    const [divStyle, setDivStyle] = useState({});
+  
+    const handleContextMenu = (event) => {
+      event.preventDefault();
+      setShowDiv(true);
+      setDivStyle({ left: event.clientX, top: event.clientY });
+    };
+  
+    const handleMouseDown = () => {
+      setShowDiv(false);
+    };
+
+
   const [tasksList, setTasksList] = useState([]);
   const [newTodoTitle, setNewTodoTitle] = useState('');
   useEffect(() => {
@@ -70,7 +84,10 @@ function Tasks() {
       </div>
       <div className={style.tasksList}>
         {tasksList?.map((el) => {
-          return <Task title={el?.title} category={el?.category} id={el?.id} />;
+          return <Task title={el?.title} category={el?.category} id={el?.id} showDiv={showDiv}
+          divStyle={divStyle}
+          handleContextMenu={handleContextMenu}
+          handleMouseDown={handleMouseDown} />;
         })}
       </div>
       <form className={style.addTaskBtn} onSubmit={(e => {
