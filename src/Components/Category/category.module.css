@@ -1,6 +1,6 @@
 .category{
     display: flex;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
     margin-top: 1rem;
     
 
@@ -118,23 +118,24 @@
 }
 
 .todocounter{
-    font-size: 0.7rem;
-    height: 13px;
-    width: 13px;
-    border-radius: 50% 50%;
-    background-color: #303030;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 0.7rem;
+  height: 13px;
+  width: 13px;
+  border-radius: 50% 50%;
+  background-color: #303030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: 40px;
     
 }
-.icontitlebox p{
-    margin-left: 1rem;
-}
+
 
 .categoryContainer {
     height: 703px; /* Imposta l'altezza desiderata per visualizzare le categorie */
-    overflow-y: auto; /* Aggiungi una barra di scorrimento verticale solo se necessario */
+    overflow-x: hidden; /* Aggiungi una barra di scorrimento verticale solo se necessario */
+  
   }
 
   .inputTitle{

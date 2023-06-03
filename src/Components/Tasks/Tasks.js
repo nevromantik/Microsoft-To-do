@@ -7,11 +7,12 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 import { BsLightbulb } from "react-icons/bs";
 import uniqid from 'uniqid'
 import Task from "./Task";
+import Options from "../Options/Options";
 function Tasks() {
-  const { selectedCategory, setSelectedCategory, currentUser, setCurrentUser, selectedCatId } =
+  const { selectedCategory, setSelectedCategory, currentUser, setCurrentUser, selectedCatId, options, setOptions} =
     useContext(AppContext);
   const [tasksList, setTasksList] = useState([]);
-  const [newTodoTitle, setNewTodoTitle] = useState('')
+  const [newTodoTitle, setNewTodoTitle] = useState('');
   useEffect(() => {
     const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === selectedCatId;
@@ -34,7 +35,6 @@ function Tasks() {
    setCurrentUser((prev) => {
     return {...prev, todos: [...prev.todos, newTodo]}
    });
-   console.log(currentUser?.todos)
   }
   return (
     <div className={style.taskcontainer}>
@@ -49,9 +49,16 @@ function Tasks() {
         <button className={style.showDetailsBtn}>
           <BsLightbulb style={{ fontSize: "1rem" }} />
         </button>
-        <button className={style.changebcBtn} style={{ fontSize: "1rem" }}>
+        <button className={style.changebcBtn} style={{ fontSize: "1rem" }} onClick={(e) => {
+          e.preventDefault();
+          setOptions(!options)
+        }}>
           °°°
         </button>
+        <div>
+        {options ? <Options/> : null}
+        </div>
+        
       </div>
       <div className={style.sortTaskBtn}>
         <button>

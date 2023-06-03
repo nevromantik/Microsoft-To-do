@@ -1,0 +1,50 @@
+.optionsWrap{
+    position: absolute;
+    border:  1px solid #313131;
+    height: 28rem;
+    width: 19rem;
+    right: 21rem;
+    top: 4.5rem;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 3%;
+    -webkit-box-shadow: 4px 13px 30px -8px #000000; 
+box-shadow: 4px 13px 30px -8px #000000;
+}
+
+.sortBtns{
+    display: flex;
+    cursor: pointer;
+    padding: 0.1rem
+    
+}
+.sortBtns:hover{
+    background-color: rgba(52, 52, 52, 1);
+
+}
+
+.iconsBc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.completedActivity button{
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin-left: 0.6rem;
+  position: relative;
+  bottom: 0.4rem;
+}
+.completedActivity{
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+.completedActivity:hover{
+    background-color: rgba(52, 52, 52, 1);
+
+}

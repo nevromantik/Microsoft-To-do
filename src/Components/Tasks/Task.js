@@ -5,9 +5,13 @@ import { AiOutlineStar } from "react-icons/ai";
 function Task({id, title, category}) {
   return (
     <div key={id} className={style.task}>
-     <div className={style.check}></div>
+      <div>
+      <div className={style.check}></div>
+
+      </div>
      <div className={style.infoTodo}>
         <p>{title}</p>
+        
         <p className={style.todoCategory}>{category}</p>
      </div>
      <div className={style.importantIcon}>

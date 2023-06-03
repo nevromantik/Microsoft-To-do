@@ -1,6 +1,6 @@
 .dashboard{
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 10% 90%;
     height: 99.8vh;
 }
 
@@ -10,4 +10,15 @@
     background-color: rgba(33,33,33,255);
     height: 100.2%;
 
+    background-image: url("../../Assets/backgroundImgs/default.png");
+    background-position: 577px 302px;
+        background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+    
+
+
+}
+
+.dashboardDefaultBg{
+   
+  
 }

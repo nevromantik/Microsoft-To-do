@@ -105,13 +105,13 @@ function Categorytest() {
                   }}
                 >
                    
-                    {cat.title === 'La mia giornata' ? <FiHome style={{ fontSize: "1.5rem", color: "#818e98" }}/> :  <cat.icon
-                      style={{ fontSize: "1.5rem", color: "#6e80c9" }}
+                    {cat.title === 'La mia giornata' ? <FiHome style={{ fontSize: "1.2rem", color: "#818e98" }}/> :  <cat.icon
+                      style={{ fontSize: "1.2rem", color: "#6e80c9" }}
                     /> }
-                    {cat.title === 'Assegnate a me' ? <BiUser  style={{ fontSize: "1.5rem", color: "#8dbfa9" }}/> :  null }
-                    {cat.title === 'Importante' ? <AiOutlineStar style={{ fontSize: "1.5rem", color: "#818e98" }}/> :  null }
-                    {cat.title === 'Pianificato' ? <BiBookContent style={{ fontSize: "1.5rem", color: "#7183cf" }}/> :  null }
-                    {cat.title === 'Attività' ? <BsSun style={{ fontSize: "1.5rem", color: "#818e98" }}/> :  null }
+                    {cat.title === 'Assegnate a me' ? <BiUser  style={{ fontSize: "1.2rem", color: "#8dbfa9" }}/> :  null }
+                    {cat.title === 'Importante' ? <AiOutlineStar style={{ fontSize: "1.2rem", color: "#818e98" }}/> :  null }
+                    {cat.title === 'Pianificato' ? <BiBookContent style={{ fontSize: "1.2rem", color: "#7183cf" }}/> :  null }
+                    {cat.title === 'Attività' ? <BsSun style={{ fontSize: "1.2rem", color: "#818e98" }}/> :  null }
 
                     
 
