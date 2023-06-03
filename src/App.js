@@ -7,14 +7,15 @@ import Login from "./Components/Auth/Login";
 import DashboardLayout from "./Pages/Dashboard/DashboardLayout";
 import Tasks from "./Components/Tasks/Tasks";
 import treeImg from "./Assets/backgroundImgs/albero.jpg";
-import carImg from "./Assets/backgroundImgs/auto.jpg";
+import carImg from "./Assets/backgroundImgs/auto.png";
+
 import fieldImg from "./Assets/backgroundImgs/campo.jpg";
 import cartImg from "./Assets/backgroundImgs/cartoon.jpg";
 import defaultImg from "./Assets/backgroundImgs/default.png";
-import desertImg from "./Assets/backgroundImgs/deserto.jpg";
+import desertImg from "./Assets/backgroundImgs/desert.png";
 import lhImg from "./Assets/backgroundImgs/faro.jpg";
-import greenImg from "./Assets/backgroundImgs/green.jpg";
-import islandImg from "./Assets/backgroundImgs/isola.jpg";
+import greenImg from "./Assets/backgroundImgs/green.png";
+import islandImg from "./Assets/backgroundImgs/island.jpg";
 import uniqId from "uniqid";
 export const AppContext = createContext(null);
 
@@ -65,7 +66,7 @@ function App() {
       setAllUsers(response.data);
     });
   }, []);
-
+  const [catIdForBg, setCatIdForBg] = useState('')
   return (
     <div className="App">
       <AppContext.Provider
@@ -83,7 +84,9 @@ function App() {
           selectedCatId,
           selectedDefaultCatId,
           setSelectedDefaultCatId,
-          backgroundImages
+          backgroundImages,
+          setCatIdForBg,
+          catIdForBg
         }}
       >
         <BrowserRouter>

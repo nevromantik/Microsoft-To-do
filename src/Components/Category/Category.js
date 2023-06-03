@@ -27,6 +27,7 @@ function Categorytest() {
     setSelectedCatId,
     selectedDefaultCatId,
     setSelectedDefaultCatId,
+    setCatIdForBg
   } = useContext(AppContext);
 
   const [newCatTitle, setNewCatTitle] = useState("");
@@ -56,7 +57,6 @@ function Categorytest() {
     const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === catId;
     });
-
     selected.title = newCatTitle;
     setCurrentUser((prev) => {
       return {
@@ -70,8 +70,9 @@ function Categorytest() {
         }),
       };
     });
+      console.log(currentUser);
+
   };
-  console.log(currentUser);
 
   return (
     <>

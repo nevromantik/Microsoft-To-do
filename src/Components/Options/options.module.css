@@ -12,7 +12,28 @@
     -webkit-box-shadow: 4px 13px 30px -8px #000000; 
 box-shadow: 4px 13px 30px -8px #000000;
 }
+.sortCalendar{
+    border:  1px solid #313131;
+    height: 8.5rem;
+    width: 15rem;
+    color: white;
+    font-size: 0.8rem;
+    border-radius: 3%;
+    -webkit-box-shadow: 4px 13px 30px -8px #000000; 
+    box-shadow: 4px 13px 30px -8px #000000;
+    position:absolute;
+    right:41.1rem;
+    top: 4.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
 
+
+}
+
+.sortCalendar div:hover{
+    background-color: rgba(52, 52, 52, 1);
+
+}
 .sortBtns{
     display: flex;
     cursor: pointer;
@@ -48,3 +69,14 @@ box-shadow: 4px 13px 30px -8px #000000;
     background-color: rgba(52, 52, 52, 1);
 
 }
+
+.otherSortBtn{
+    display: flex;
+
+}
+
+.otherSortBtn p {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+

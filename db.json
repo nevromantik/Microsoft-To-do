@@ -9,31 +9,31 @@
         {
           "title": "La mia giornata",
           "icon": "BsSun",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 100
         },
         {
           "title": "Importante",
           "icon": "AiOutlineStar",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 101
         },
         {
           "title": "Pianificato",
           "icon": "BiBookContent",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 102
         },
         {
           "title": "Assegnate a me",
           "icon": "BiUser",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 103
         },
         {
           "title": "Attività",
           "icon": "FiHome",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 104
         }
       ],
@@ -72,31 +72,31 @@
         {
           "title": "La mia giornata",
           "icon": "BsSun",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 100
         },
         {
           "title": "Importante",
           "icon": "AiOutlineStar",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 101
         },
         {
           "title": "Pianificato",
           "icon": "BiBookContent",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 102
         },
         {
           "title": "Assegnate a me",
           "icon": "BiUser",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 103
         },
         {
           "title": "Attività",
           "icon": "FiHome",
-          "background": null,
+          "background": "./src/Assets/backgroundImgs/default.png",
           "id": 104
         }
       ],
@@ -136,31 +136,31 @@
       {
         "title": "La mia giornata",
         "icon": "BsSun",
-        "background": null,
+        "background": "./src/Assets/backgroundImgs/default.png",
         "id": 100
       },
       {
         "title": "Importante",
         "icon": "AiOutlineStar",
-        "background": null,
+        "background": "./src/Assets/backgroundImgs/default.png",
         "id": 101
       },
       {
         "title": "Pianificato",
         "icon": "BiBookContent",
-        "background": null,
+        "background": "./src/Assets/backgroundImgs/default.png",
         "id": 102
       },
       {
         "title": "Assegnate a me",
         "icon": "BiUser",
-        "background": null,
+        "background": "./src/Assets/backgroundImgs/default.png",
         "id": 103
       },
       {
         "title": "Attività",
         "icon": "FiHome",
-        "background": null,
+        "background": "./src/Assets/backgroundImgs/default.png",
         "id": 104
       }
     ],
