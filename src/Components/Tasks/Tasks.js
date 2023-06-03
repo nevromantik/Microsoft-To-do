@@ -13,11 +13,12 @@ function Tasks() {
     useContext(AppContext);
     const [showDiv, setShowDiv] = useState(false);
     const [divStyle, setDivStyle] = useState({});
-  
-    const handleContextMenu = (event) => {
+    const [todoId, setTodoId] = useState('')
+    const handleContextMenu = (event, id) => {
       event.preventDefault();
       setShowDiv(true);
       setDivStyle({ left: event.clientX, top: event.clientY });
+      setTodoId(id)
     };
   
     const handleMouseDown = () => {
@@ -84,9 +85,9 @@ function Tasks() {
       </div>
       <div className={style.tasksList}>
         {tasksList?.map((el) => {
-          return <Task title={el?.title} category={el?.category} id={el?.id} showDiv={showDiv}
+          return <Task title={el?.title} category={el?.category} id={el?.id} showDiv={showDiv} todoId={todoId}
           divStyle={divStyle}
-          handleContextMenu={handleContextMenu}
+          handleContextMenu={(e) => handleContextMenu(e, el?.id)}
           handleMouseDown={handleMouseDown} />;
         })}
       </div>

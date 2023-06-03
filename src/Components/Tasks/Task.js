@@ -3,7 +3,7 @@ import style from "./task.module.css";
 import { AiOutlineStar } from "react-icons/ai";
 import { useState } from "react";
 import ContextMenu from "./ContextMenu";
-function Task({ id, title, category, showDiv, divStyle, handleContextMenu, handleMouseDown }) {
+function Task({ id, title, category, showDiv, divStyle, handleContextMenu, handleMouseDown, todoId }) {
  
   return (
     <>
@@ -25,7 +25,7 @@ function Task({ id, title, category, showDiv, divStyle, handleContextMenu, handl
           <AiOutlineStar style={{ fontSize: "1.7rem", color: "#aeafaf" }} />
         </div>
       </div>
-      {showDiv ? <ContextMenu divStyle={divStyle} /> : null}
+      {showDiv ? <ContextMenu divStyle={divStyle} taskId={todoId} /> : null}
     </>
   );
 }
