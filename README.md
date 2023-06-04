@@ -9,10 +9,8 @@ perciò la mia soluzione è stata quella di utilizzare json server per l'autenti
 
 
 OBIETTIVO:
-Implementa tasto destro sul task che apre un div, implementa elimina attività  
-Costruisci div suggerimenti task -> Titolo (modificabile), aggiungi sotto attività, bottone aggiungi alla mia giornata (cambia title category)
+SOTTOLINEATURA E CHECK FISSO AL COMPLETATA, SUONO 
+OPTIONS COMPONENTI, AGGIUNGI RIMUOVI DA LA MIA GIORNATA, SEGNA COME NON COMPLETATA, SPOSTA ATTIVITà IN 
+SUBTASKS
 
-
-
-
-*Sistema scroll bar tasks e aggiungi task che viene spinto in basso, fissare larghezza massimo tasks
+  {/**Quando faccio onClick: 1) mappa e modifica la proprietà completed 2) filtra i completati e li aggiunge a completed array */}

@@ -6,6 +6,8 @@ import ContextMenu from "./ContextMenu";
 import { BsCheck } from "react-icons/bs";
 import { AppContext } from "../../App";
 import { useContext } from "react";
+import { useRef } from "react";
+import bip from '../../Assets/bip.mp3'
 function Task({
   id,
   title,
@@ -17,7 +19,10 @@ function Task({
   todoId,
   setShowDiv,
 }) {
+  const audioRef = useRef(null);
+
   const [isHover, setIsHover] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const {
     completed,
     setCompleted,
@@ -46,6 +51,9 @@ function Task({
   const handleCheckClick = (event) => {
     event.stopPropagation(); // Ferma la propagazione dell'evento
     handleUpdateCompletedTask(id);
+    setIsClicked(!isClicked);
+
+    //suono
   };
   useEffect(() => {
     const completed = currentUser?.todos?.filter((el) => {
@@ -53,9 +61,16 @@ function Task({
     });
 
     setCompleted(completed);
-  }, [category, currentUser?.todos, setCompleted]);
+    if(isClicked){
+      audioRef.current.play();
+
+    }
+  }, [category, currentUser?.todos, setCompleted, isClicked]);
   return (
     <>
+      <audio ref={audioRef}>
+        <source src={bip} type="audio/mpeg" />
+      </audio>
       <div
         key={id}
         className={style.task}
@@ -70,7 +85,7 @@ function Task({
             onClick={handleCheckClick}
           >
             {" "}
-            {isHover ? (
+            {isHover || isClicked ? (
               <BsCheck
                 style={{
                   color: "white",
@@ -83,7 +98,9 @@ function Task({
           </div>
         </div>
         <div className={style.infoTodo}>
-          <p>{title}</p>
+          <p style={{ textDecoration: isClicked ? "line-through" : "" }}>
+            {title}
+          </p>
 
           <p className={style.todoCategory}>{category}</p>
         </div>
