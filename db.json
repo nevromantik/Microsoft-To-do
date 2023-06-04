@@ -41,7 +41,7 @@
         {
           "id": 22,
           "title": "test todo 1",
-          "currentState": "to do",
+          "completed": false,
           "category": "La mia giornata",
           "subTasks": [
             {
@@ -104,7 +104,7 @@
         {
           "id": 33,
           "title": "test todo 1",
-          "currentState": "to do",
+          "completed": false,
           "category": "Importante",
           "subTasks": [
             {
@@ -125,6 +125,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lifz38pl",
+      "fullname": "Jessica",
+      "email": "jessica@gmail.com",
+      "password": "ciao",
+      "todos": []
     }
   ],
   "currentUser": {
@@ -168,7 +175,7 @@
       {
         "id": 33,
         "title": "test todo 1",
-        "currentState": "to do",
+        "completed": false,
         "category": "Importante",
         "subTasks": [
           {

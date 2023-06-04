@@ -66,7 +66,9 @@ function App() {
       setAllUsers(response.data);
     });
   }, []);
-  const [catIdForBg, setCatIdForBg] = useState('')
+  const [catIdForBg, setCatIdForBg] = useState('');
+
+  const [completed, setCompleted] = useState([])
   return (
     <div className="App">
       <AppContext.Provider
@@ -86,7 +88,8 @@ function App() {
           setSelectedDefaultCatId,
           backgroundImages,
           setCatIdForBg,
-          catIdForBg
+          catIdForBg,
+          completed, setCompleted
         }}
       >
         <BrowserRouter>

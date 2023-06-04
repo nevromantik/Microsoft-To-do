@@ -8,8 +8,9 @@ import { BsLightbulb } from "react-icons/bs";
 import uniqid from 'uniqid'
 import Task from "./Task";
 import Options from "../Options/Options";
+import CompletedTasks from "./CompletedTasks";
 function Tasks() {
-  const { selectedCategory, setSelectedCategory, currentUser, setCurrentUser, selectedCatId, options, setOptions} =
+  const { selectedCategory, setSelectedCategory, currentUser, setCurrentUser, selectedCatId, options, setOptions, completed, setCompleted } =
     useContext(AppContext);
     const [showDiv, setShowDiv] = useState(false);
     const [divStyle, setDivStyle] = useState({});
@@ -45,6 +46,7 @@ function Tasks() {
         id: uniqid(),
         title: newTodoTitle,
         category: selectedCategory.title,
+        completed: false,
         subTasks: []
     }
    setCurrentUser((prev) => {
@@ -83,13 +85,23 @@ function Tasks() {
           In ordine di importanza
         </button>
       </div>
-      <div className={style.tasksList}>
+      <div className={style.tasksList}         
+>
         {tasksList?.map((el) => {
-          return <Task title={el?.title} category={el?.category} id={el?.id} showDiv={showDiv} todoId={todoId}
+          return <Task title={el?.title} category={el?.category} id={el?.id} showDiv={showDiv} setShowDiv={setShowDiv} todoId={todoId} 
           divStyle={divStyle}
           handleContextMenu={(e) => handleContextMenu(e, el?.id)}
           handleMouseDown={handleMouseDown} />;
         })}
+      </div>
+      <div className={style.completedTasks}>
+      {completed?.length > 0 && selectedCategory.title === completed[0].category ?
+      
+      completed.map((el) => {
+        return  <CompletedTasks title={el.title} id={el.id}/>
+      })
+      : null}
+
       </div>
       <form className={style.addTaskBtn} onSubmit={(e => {
         e.preventDefault();
