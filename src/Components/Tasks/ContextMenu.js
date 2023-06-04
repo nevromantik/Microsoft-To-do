@@ -12,6 +12,7 @@ function ContextMenu({ divStyle, taskId, showDiv, setShowDiv }) {
     });
     setShowDiv(false);
   };
+
   return (
     <>
       <div
@@ -19,39 +20,24 @@ function ContextMenu({ divStyle, taskId, showDiv, setShowDiv }) {
         style={{ display: "block", position: "absolute", ...divStyle }}
       >
         <div className={style.otherBtns}>
-          <div>
-            <p>I</p>
-            <p>Rimuovi da "La mia giornata"</p>
-            {/**o aggiungi  */}
+          <div className={style.importantTodo}>
+            <button>Segna come importante</button>
+          </div>
+          <div className={style.completedTodo}>
+            <button>Segna come completata</button>
           </div>
           <div>
-            <p>I</p>
-            <p>Segna come importante</p>
+            <button>In scadenza oggi</button>
+          </div>
+        
+          <div>
+            <button>In scadenza domani</button>
           </div>
           <div>
-            <p>I</p>
-            <p>Segna come completata</p>
-            {/**o aggiungi  */}
+            <button>Seleziona data</button>
           </div>
           <div>
-            <p>I</p>
-            <p>In scadenza oggi</p>
-            {/**o aggiungi  */}
-          </div>
-          <div>
-            <p>I</p>
-            <p>In scadenza domani</p>
-            {/**o aggiungi  */}
-          </div>
-          <div>
-            <p>I</p>
-            <p>Seleziona data</p>
-            {/**o aggiungi  */}
-          </div>
-          <div>
-            <p>I</p>
-            <p>Sposta attività in</p>
-            {/**o aggiungi  */}
+            <button>Sposta attività in</button>
           </div>
 
           <div className={style.completedActivity}>

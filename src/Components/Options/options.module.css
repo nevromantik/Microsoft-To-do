@@ -11,6 +11,7 @@
     border-radius: 3%;
     -webkit-box-shadow: 4px 13px 30px -8px #000000; 
 box-shadow: 4px 13px 30px -8px #000000;
+background-color: rgba(33, 33, 33, 0.829) ; /* Imposta il colore di sfondo trasparente */
 
 -webkit-animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -75,6 +76,8 @@ animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     position:absolute;
     right:41.1rem;
     top: 4.5rem;
+    background-color: rgba(33, 33, 33, 0.829) ; /* Imposta il colore di sfondo trasparente */
+
     padding: 0.5rem;
     cursor: pointer;
     -webkit-animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
