@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./task.module.css";
 import { AiOutlineStar } from "react-icons/ai";
 import { useState } from "react";
@@ -18,8 +18,13 @@ function Task({
   setShowDiv,
 }) {
   const [isHover, setIsHover] = useState(false);
-  const { completed, setCompleted, currentUser, setCurrentUser, selectedCategory } =
-    useContext(AppContext);
+  const {
+    completed,
+    setCompleted,
+    currentUser,
+    setCurrentUser,
+    selectedCategory,
+  } = useContext(AppContext);
   const handleUpdateCompletedTask = (id) => {
     const selectedTodo = currentUser?.todos.find((el) => el?.id === id); // todo selezionato
     setCurrentUser((prev) => {
@@ -37,19 +42,18 @@ function Task({
         }),
       };
     });
-    const completed = currentUser?.todos?.filter((el) => {
-      return el.completed === true && el.category === category;
-    });
-    
-    setCompleted(completed);
-    console.log(completed)
-
   };
   const handleCheckClick = (event) => {
     event.stopPropagation(); // Ferma la propagazione dell'evento
     handleUpdateCompletedTask(id);
   };
+  useEffect(() => {
+    const completed = currentUser?.todos?.filter((el) => {
+      return el.completed === true && el.category === category;
+    });
 
+    setCompleted(completed);
+  }, [category, currentUser?.todos, setCompleted]);
   return (
     <>
       <div
@@ -63,10 +67,9 @@ function Task({
           <div
             className={style.check}
             onMouseEnter={() => setIsHover(true)}
-           onClick={handleCheckClick}
+            onClick={handleCheckClick}
           >
             {" "}
-          
             {isHover ? (
               <BsCheck
                 style={{
