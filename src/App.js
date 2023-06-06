@@ -8,7 +8,7 @@ import DashboardLayout from "./Pages/Dashboard/DashboardLayout";
 import Tasks from "./Components/Tasks/Tasks";
 import treeImg from "./Assets/backgroundImgs/albero.jpg";
 import carImg from "./Assets/backgroundImgs/auto.png";
-
+import Loading from "./Components/Loading/Loading";
 import fieldImg from "./Assets/backgroundImgs/campo.jpg";
 import cartImg from "./Assets/backgroundImgs/cartoon.jpg";
 import defaultImg from "./Assets/backgroundImgs/default.png";
@@ -47,7 +47,6 @@ function App() {
       { hex: "#ffc008", id: uniqId() },
       { hex: "#947373", id: uniqId() },
       { hex: "#6a8196", id: uniqId() },
-     
     ],
     imgs: [
       { url: treeImg, id: uniqId() },
@@ -66,9 +65,9 @@ function App() {
       setAllUsers(response.data);
     });
   }, []);
-  const [catIdForBg, setCatIdForBg] = useState('');
+  const [catIdForBg, setCatIdForBg] = useState("");
 
-  const [completed, setCompleted] = useState([])
+  const [completed, setCompleted] = useState([]);
   return (
     <div className="App">
       <AppContext.Provider
@@ -89,7 +88,8 @@ function App() {
           backgroundImages,
           setCatIdForBg,
           catIdForBg,
-          completed, setCompleted
+          completed,
+          setCompleted,
         }}
       >
         <BrowserRouter>

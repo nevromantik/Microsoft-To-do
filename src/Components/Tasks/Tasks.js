@@ -11,6 +11,7 @@ import Task from "./Task";
 import Options from "../Options/Options";
 import CompletedTasks from "./CompletedTasks";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
+import InfoCat from "../Category/InfoCat";
 function Tasks() {
   const {
     selectedCategory,
@@ -26,6 +27,7 @@ function Tasks() {
   const [showDiv, setShowDiv] = useState(false);
   const [divStyle, setDivStyle] = useState({});
   const [todoId, setTodoId] = useState("");
+
   const handleContextMenu = (event, id) => {
     event.preventDefault();
     setShowDiv(true);
@@ -39,6 +41,7 @@ function Tasks() {
   const [showCompleted, setShowCompleted] = useState(false);
   const [tasksList, setTasksList] = useState([]);
   const [newTodoTitle, setNewTodoTitle] = useState("");
+  const [todoLength, setTodoLength] = useState("");
   useEffect(() => {
     const selected = currentUser?.customCategory?.find((el) => {
       return el?.id === selectedCatId;
@@ -88,6 +91,7 @@ function Tasks() {
         </button>
         <div>{options ? <Options /> : null}</div>
       </div>
+
       <div className={style.sortTaskBtn}>
         <button>
           <AiOutlineArrowUp
@@ -97,33 +101,37 @@ function Tasks() {
         </button>
       </div>
       <div className={`${style.tasksList} ${style.scroll}`}>
-        {tasksList?.map((el) => {
-          return (
-            <Task
-              title={el?.title}
-              category={el?.category}
-              id={el?.id}
-              showDiv={showDiv}
-              setShowDiv={setShowDiv}
-              todoId={todoId}
-              divStyle={divStyle}
-              handleContextMenu={(e) => handleContextMenu(e, el?.id)}
-              handleMouseDown={handleMouseDown}
-            />
-          );
-        })}
+        {tasksList?.length === 0 ? (
+          <InfoCat categoryTitle={selectedCategory.title} />
+        ) : (
+          tasksList?.map((el) => {
+            return (
+              <Task
+                title={el?.title}
+                category={el?.category}
+                id={el?.id}
+                showDiv={showDiv}
+                setShowDiv={setShowDiv}
+                todoId={todoId}
+                divStyle={divStyle}
+                handleContextMenu={(e) => handleContextMenu(e, el?.id)}
+                handleMouseDown={handleMouseDown}
+              />
+            );
+          })
+        )}
         <div className={style.completedTasks}>
           {completed.length > 0 ? (
             <div className={style.showCompleted}>
               {showCompleted ? (
                 <div className={style.iconCompleted}>
                   {" "}
-                  <IoIosArrowDown style={{ color: 'white' }} />
+                  <IoIosArrowDown style={{ color: "white" }} />
                 </div>
               ) : (
                 <div className={style.iconCompleted}>
                   {" "}
-                  <IoIosArrowForward style={{ color: 'white' }} />
+                  <IoIosArrowForward style={{ color: "white" }} />
                 </div>
               )}
               <button
@@ -139,14 +147,15 @@ function Tasks() {
           ) : null}
 
           {completed?.length > 0 &&
-          selectedCategory.title === completed[0].category && showCompleted
+          selectedCategory.title === completed[0].category &&
+          showCompleted
             ? completed.map((el) => {
                 return <CompletedTasks title={el.title} id={el.id} />;
               })
             : null}
         </div>
       </div>
-
+      {/**Qui finisce condition infoCat  */}
       <form
         className={style.addTaskBtn}
         onSubmit={(e) => {

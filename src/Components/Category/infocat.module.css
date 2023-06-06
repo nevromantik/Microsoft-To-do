@@ -1,0 +1,22 @@
+.infocatwrap{
+    border: none;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 40rem;
+    margin-top: 5rem;
+    border-radius: 5%;
+    color: white;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    padding: 1rem
+
+    
+}
+
+.infocatdescription p {
+    font-size: 0.8rem;
+}

@@ -7,7 +7,7 @@ import { BsCheck } from "react-icons/bs";
 import { AppContext } from "../../App";
 import { useContext } from "react";
 import { useRef } from "react";
-import bip from '../../Assets/bip.mp3'
+import bip from "../../Assets/bip.mp3";
 function Task({
   id,
   title,
@@ -47,6 +47,7 @@ function Task({
         }),
       };
     });
+     
   };
   const handleCheckClick = (event) => {
     event.stopPropagation(); // Ferma la propagazione dell'evento
@@ -61,9 +62,8 @@ function Task({
     });
 
     setCompleted(completed);
-    if(isClicked){
+    if (isClicked) {
       audioRef.current.play();
-
     }
   }, [category, currentUser?.todos, setCompleted, isClicked]);
   return (

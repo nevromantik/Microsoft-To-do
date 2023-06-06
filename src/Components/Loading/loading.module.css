@@ -1,0 +1,9 @@
+.loadingwrap{
+    background-color: rgba(33,33,33,255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+ 
+}
