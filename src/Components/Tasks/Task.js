@@ -8,6 +8,7 @@ import { AppContext } from "../../App";
 import { useContext } from "react";
 import { useRef } from "react";
 import bip from "../../Assets/bip.mp3";
+import { useNavigate } from "react-router-dom";
 function Task({
   id,
   title,
@@ -20,7 +21,7 @@ function Task({
   setShowDiv,
 }) {
   const audioRef = useRef(null);
-
+  const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const {
@@ -29,6 +30,8 @@ function Task({
     currentUser,
     setCurrentUser,
     selectedCategory,
+    selectedTodo,
+    setSelectedTodo
   } = useContext(AppContext);
   const handleUpdateCompletedTask = (id) => {
     const selectedTodo = currentUser?.todos.find((el) => el?.id === id); // todo selezionato
@@ -47,8 +50,13 @@ function Task({
         }),
       };
     });
-     
   };
+  const getSelectedTodo = (id) => {
+    const selectedTodo = currentUser?.todos.find((el) => el?.id === id);
+    setSelectedTodo(selectedTodo);
+    navigate("subtasks");
+
+  }
   const handleCheckClick = (event) => {
     event.stopPropagation(); // Ferma la propagazione dell'evento
     handleUpdateCompletedTask(id);
@@ -77,6 +85,9 @@ function Task({
         onContextMenu={handleContextMenu}
         onMouseDown={handleMouseDown}
         onMouseLeave={() => setIsHover(false)}
+        onClick={() => {
+          getSelectedTodo(id)
+        }}
       >
         <div>
           <div

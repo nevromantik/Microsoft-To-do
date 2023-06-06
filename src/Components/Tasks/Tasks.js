@@ -12,6 +12,7 @@ import Options from "../Options/Options";
 import CompletedTasks from "./CompletedTasks";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
 import InfoCat from "../Category/InfoCat";
+import { Outlet } from "react-router-dom";
 function Tasks() {
   const {
     selectedCategory,
@@ -67,6 +68,7 @@ function Tasks() {
     });
   };
   return (
+    <>
     <div className={style.taskcontainer}>
       <div className={style.taskCategoryDateInfo}>
         <h1> {selectedCategory?.title}</h1>
@@ -172,6 +174,10 @@ function Tasks() {
         ></input>
       </form>
     </div>
+    
+    <Outlet/>
+
+    </>
   );
 }
 

@@ -17,6 +17,7 @@ import lhImg from "./Assets/backgroundImgs/faro.jpg";
 import greenImg from "./Assets/backgroundImgs/green.png";
 import islandImg from "./Assets/backgroundImgs/island.jpg";
 import uniqId from "uniqid";
+import Subtasks from "./Components/Subtasks/Subtasks";
 export const AppContext = createContext(null);
 
 function App() {
@@ -66,7 +67,7 @@ function App() {
     });
   }, []);
   const [catIdForBg, setCatIdForBg] = useState("");
-
+  const [selectedTodo, setSelectedTodo] = useState({})
   const [completed, setCompleted] = useState([]);
   return (
     <div className="App">
@@ -90,6 +91,8 @@ function App() {
           catIdForBg,
           completed,
           setCompleted,
+          selectedTodo, 
+          setSelectedTodo
         }}
       >
         <BrowserRouter>
@@ -98,7 +101,10 @@ function App() {
               <Route index element={<Login />} />
             </Route>
             <Route path="dashboard" element={<DashboardLayout />}>
-              <Route path="tasks" element={<Tasks />} />
+              <Route path="tasks" element={<Tasks />}>
+              <Route path="subtasks" element={<Subtasks/>}/>
+
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>
