@@ -5,12 +5,14 @@ import { useContext } from "react";
 import { AppContext } from "../../App";
 import { BsCheck } from "react-icons/bs";
 import { BiDotsVerticalRounded } from "react-icons/bi";
+import { useEffect } from "react";
 function Subtask({ id, title, completed }) {
   const { selectedTodo, setSelectedTodo, setCurrentUser, currentUser } =
     useContext(AppContext);
 
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [subtasks, setsubtasks] = useState([]);
   const deleteSub = (e) => {
     const subId = e.target.getAttribute("data-id");
 
@@ -20,34 +22,61 @@ function Subtask({ id, title, completed }) {
       return { ...prev, subTasks: filtered };
     });
   };
+  const handleUpdateCompletedSubtask = () => {
+    const selectedSubtask = selectedTodo?.subTasks?.find((el) => el?.id === id); // subtask selezionato
+    setCurrentUser((prev) => {
+      return {
+        ...prev,
+
+        subTasks: prev?.subTasks?.map((el) => {
+          if (el.id === selectedSubtask.id) {
+            return {
+              ...el,
+              completed: true,
+            };
+          } else {
+            return el;
+          }
+        }),
+      };
+    });
+  };
+  
   return (
     <>
-      <div key={id} className={style.subtaskForm}>
-        <div className={style.check2} onMouseEnter={() => setIsHover(true)}>
-          {isHover || isClicked ? (
-            <BsCheck
-              style={{
-                color: "white",
-                position: "relative",
-                left: "1px",
-                top: "1px",
-              }}
-            />
-          ) : null}
-        </div>
-        <div className={style.inputandicon}>
-          <input className={style.subtaskinput} placeholder={title}></input>
-          <BiDotsVerticalRounded
+    {selectedTodo?.subTasks?.map((el) => {
+      return <div key={el.id} className={style.subtaskForm}>
+      <div
+        className={style.check2}
+        onMouseEnter={() => setIsHover(true)}
+        onClick={handleUpdateCompletedSubtask}
+      >
+        {isHover || isClicked ? (
+          <BsCheck
             style={{
               color: "white",
-              fontSize: "1rem",
-              marginTop: "0.1rem",
+              position: "relative",
+              left: "1px",
+              top: "1px",
             }}
-            data-id={id}
-            onClick={(e) => deleteSub(e)}
           />
-        </div>
+        ) : null}
       </div>
+      <div className={style.inputandicon}>
+        <input className={style.subtaskinput} placeholder={el.title}></input>
+        <BiDotsVerticalRounded
+          style={{
+            color: "white",
+            fontSize: "1rem",
+            marginTop: "0.1rem",
+          }}
+          data-id={id}
+          onClick={(e) => deleteSub(e)}
+        />
+      </div>
+    </div>
+    })}
+      
     </>
   );
 }
