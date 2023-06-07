@@ -13,6 +13,7 @@ function Subtask({ id, title, completed }) {
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [subtasks, setsubtasks] = useState([]);
+  const [currentTodo, setCurrentTodo] = useState([])
   const deleteSub = (e) => {
     const subId = e.target.getAttribute("data-id");
 
@@ -41,10 +42,16 @@ function Subtask({ id, title, completed }) {
       };
     });
   };
+
+  useEffect(() => {
+    const selected = currentUser?.todos?.find((el) => el.id === selectedTodo.id); 
+    setCurrentTodo(selected)
+  }, [currentUser?.todos, selectedTodo.id])
+  
   
   return (
     <>
-    {selectedTodo?.subTasks?.map((el) => {
+    {currentTodo?.subTasks?.map((el) => {
       return <div key={el.id} className={style.subtaskForm}>
       <div
         className={style.check2}

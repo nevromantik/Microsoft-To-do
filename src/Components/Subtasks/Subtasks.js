@@ -11,38 +11,31 @@ import { BsCheck } from "react-icons/bs";
 import Subtask from "./Subtask";
 function Subtasks() {
   const { selectedTodo, setSelectedTodo, setCurrentUser, currentUser } = useContext(AppContext);
+  const [newTitle, setNewTitle] = useState()
   const [newSubs, addNewSub] = useState('');
   const [updatedSelectedTodo, setUpdatedSelectedTodo] = useState(selectedTodo); // Aggiunto nuovo stato
 
-  const handleAddSubtask = () => {
-    const newSub = {
-        id: uniqid(),
-        title: newSubs,
-        category: selectedTodo.category,
-        completed: false,
-        
-      };
-      setCurrentUser((prevUser) => {
-        const updatedTodos = prevUser.todos.map((todo) => {
-          if (todo.id === selectedTodo.id) {
-            return {
-              ...todo,
-              subTasks: [...todo.subTasks, newSub],
-            };
-          }
-          return todo;
-        });
-    
-        return {
-          ...prevUser,
-          todos: updatedTodos,
-        };
+  useEffect(() => {
+    setCurrentUser((prevUser) => {
+      const updatedTodos = prevUser.todos.map((todo) => {
+        if (todo.id === selectedTodo.id) {
+          return {
+            ...todo,
+            subTasks: [...todo.subTasks, newSubs],
+          };
+        }
+        return todo;
       });
-
-      console.log(currentUser?.todos, 'CURRENT')
-
-  }
-
+  
+      return {
+        ...prevUser,
+        todos: updatedTodos,
+      };
+    });
+  
+    
+  }, [newSubs, selectedTodo.id, setCurrentUser])
+  
 
 
 
@@ -72,7 +65,13 @@ function Subtasks() {
           </div>
           <form onSubmit={(e) => {
             e.preventDefault();
-            handleAddSubtask()
+            addNewSub({
+              id: uniqid(),
+              title: newTitle,
+              category: selectedTodo.category,
+              completed: false,
+              
+            })
           }}> 
 
               <Subtask  />
@@ -80,7 +79,7 @@ function Subtasks() {
             <div className={style.inputAddSub}>
             <button type='submit'>              <AiOutlinePlus style={{fontSize: '1rem', color: 'white', marginLeft: '0.3rem'}} />
 </button>
-              <input type='text' placeholder="Passaggio successivo" onChange={(e) => addNewSub(e.target.value)} />
+              <input type='text' placeholder="Passaggio successivo" onChange={(e) => setNewTitle(e.target.value)} />
               
             </div>
           </form>
